@@ -16,8 +16,7 @@
   </nav>
   {{{body}}}
   <script src="/scripts/script.js"></script>
-  <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArY6-9h-kzcySK9XngujalWwOr2Rd8xeo&callback=init"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key={{process.env.MAPS_API}}&callback=init"></script>
 </body>
 
 </html>
