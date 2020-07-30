@@ -7,18 +7,25 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const indexRouter = require('./routes/index');
+const placesRouter = require('./routes/places');
+
+const jsonHelper = require('hbs-json');
+const hbs = require('hbs');
 
 const app = express();
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+hbs.registerHelper('json', jsonHelper);
+
 app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(
   sassMiddleware({
     src: join(__dirname, 'public'),
     dest: join(__dirname, 'public'),
-    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    outputStyle:
+      process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
     force: process.env.NODE_ENV === 'development',
     sourceMap: true
   })
@@ -28,6 +35,7 @@ app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
+app.use('/places', placesRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

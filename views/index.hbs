@@ -1,2 +1,28 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Hello World</h1>
+
+{{#each places}}
+
+<a href="/places/{{_id}}">
+  <h4>{{name}}</h4>
+</a>
+
+<div id="map-container"></div>
+{{/each}}
+
+<script>
+  function init() {
+    const mapContainerElement = document.getElementById('map-container');
+    { {#each places } }
+    console.log(name)
+    {
+      {
+        /each}}
+        const map = new window.google.maps.Map(mapContainerElement, {
+          center: {
+            lat: 0,
+            lng: 0
+          },
+          zoom: 9
+        });
+      }
+</script>

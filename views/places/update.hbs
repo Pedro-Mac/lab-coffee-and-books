@@ -1,0 +1,19 @@
+<h1>Update {{data.name}}</h1>
+
+<form method="POST">
+  <input id="name" type="text" name="name" placeholder="Name" value="{{data.name}}">
+
+  <label for="coffee">Coffeeshop</label>
+  <input id="coffee" type="radio" name="type" value="coffee_shop">
+
+  <label for="latitude-input">Restaurant Latitude</label>
+  <input id="latitude-input" type="text" placeholder="Latitude" name="latitude">
+
+  <label for="longitude-input">Restaurant Longitude</label>
+  <input id="longitude-input" type="text" placeholder="Longitude" name="longitude">
+
+  <label for="bookstore">Bookstore</label>
+  <input id="bookstore" type="radio" name="type" value="bookstore">
+
+  <button>Update place</button>
+</form>
